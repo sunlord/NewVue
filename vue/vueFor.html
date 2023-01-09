@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <!-- v-for使用学习 -->
+    <div id="app">
+        <button value="点击就送" @click="add">点击就送</button>
+        <button value="点击就拿" @click="remove">点击就拿</button>
+    <h2 v-for="item in arr" :title="item">{{item}}</h2>
+    <h3 v-for="(item,index) in vagitables" :title="item.name">{{index+1}} {{item.name}}</h3>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                arr:["番茄","韭菜","小葱","黄瓜"],
+                vagitables:[
+                    {name:"番茄炒蛋"},
+                    {name:"韭菜炒蛋"},
+                    {name:"小葱煎蛋"},
+                    {name:"黄瓜炒蛋"}
+                ]
+            },
+            methods:{
+                add:function(){
+                    // push可以想里面添加数据。目前使用的是固定加数据
+                    this.vagitables.push({name:"青椒炒蛋"});
+                },
+                remove:function(){
+                    // shift是从左边取走第一个数据
+                    this.vagitables.shift();
+                }
+            },
+        })
+    </script>
+
+</body>
+</html>
