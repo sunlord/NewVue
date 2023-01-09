@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <style>
+        .active {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img :src="bindsrc" alt="" title="波仔">
+        <img v-bind:src="bindsrc" v-bind:title="bindtitle">
+        <!-- 三元运算符 -->
+        <img :src="bindsrc" alt="" :title="bindtitle" :class=" isactive ? 'active' : '' " @click="clickTitle()">
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                bindsrc:"../img/monkey.gif",
+                bindtitle:"波仔",
+                isactive:false,
+            },
+            methods:{
+                // 点击改变isactive的值。布尔值！
+                clickTitle:function(){
+                    this.isactive=!this.isactive;
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

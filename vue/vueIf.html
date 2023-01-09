@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点击就行" @click="ifDisplay()">
+        <span v-if="ifDis">生与死轮回不止</span>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                ifDis: true,
+            },
+            methods:{
+                ifDisplay:function(){
+                    this.ifDis = !this.ifDis;
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>
