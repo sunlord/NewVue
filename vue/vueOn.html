@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button value="点击" @click="clickIt('老铁',666)"> 点击 </button>
+        <input type="button" value="点击" @click="clickIt('老铁',666)">
+        <input type="text" name="" id="" @keyup.enter="doIt">
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                clickIt:function(p1,p2){
+                    console.log("别点我");
+                    console.log(p1);
+                    console.log(p2);
+                },
+
+                doIt:function(){
+                    alert("吃了咩");
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
