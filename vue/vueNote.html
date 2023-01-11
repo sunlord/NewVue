@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <!-- css文件 -->
+    <link rel="stylesheet" href="../css/vueNote.css">
+    <!-- 引入vue库 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "app">
+        <!-- 标题 -->
+        <div class="title">
+            <h1>笔记本</h1>
+        </div>
+        <!-- 列表 -->
+        <div class="detail">
+            <!-- 输入框 -->
+            <input type = "text" name = "" id = "inputVa" placeholder = "请输入任务"
+                     v-model = "inputValue" @keyup.enter = "add" autofocus = "inputValue">
+            <!-- 列表项 -->
+            <div class = "list" v-for = "(message, index) in messArr" >
+                <p style="width:30px;">{{ index+1 }}</p>
+                <p style="width:150px;">{{ message }}</p>
+                <button class="clickbutton" @click="clickBtn(index)"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                messArr: ["吃饭", "睡觉", "打豆豆"],
+                inputValue:"好好学习,天天向上",
+            },
+            methods: {
+                add: function() {
+                    this.messArr.push(this.inputValue);
+                },
+
+                clickBtn:function(index) {
+                    // console.log(index);
+                    // 删除数组中的数据,按索引删,一次删一个
+                    this.messArr.splice(index,1);
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
