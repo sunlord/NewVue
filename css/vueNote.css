@@ -71,3 +71,30 @@
     cursor:pointer;
     background-color: #fff;
 }
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top:1px solid orange;
+    padding-bottom: 10px;
+}
+
+.total {
+    color: orange;
+}
+
+.total p {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.clear {
+    cursor:pointer;
+}
+
+.clear p {
+    font-size: 16px;
+    color: red;
+    margin-right:10px;
+}

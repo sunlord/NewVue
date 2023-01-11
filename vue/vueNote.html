@@ -27,6 +27,14 @@
                 <p style="width:150px;">{{ message }}</p>
                 <button class="clickbutton" @click="clickBtn(index)"></button>
             </div>
+            <div class="bottom" v-show="messArr.length != 0">
+                <div class="total">
+                    <p>{{messArr.length}}条数据</p>
+                </div>
+                <div class="clear" @click="clear">
+                    <p>clear</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -46,6 +54,11 @@
                     // console.log(index);
                     // 删除数组中的数据,按索引删,一次删一个
                     this.messArr.splice(index,1);
+                },
+
+                clear:function() {
+                    // 清空数组
+                    this.messArr = [];
                 }
             }
         })
