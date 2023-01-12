@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/vueWeather.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="title">
+            <span>天知道</span>
+        </div>
+        <div class="search">
+            <input type="text" class="get" value="" placeholder="请输入城市" v-model="city" @keyup.enter="getWeather">
+            <input type="button" class="searchbtn" value="查询" @click="getWeather"></input>
+        </div>
+        <div class="city">
+            <a v-for="item in cityList" @click="getCity(item)">{{ item }}&nbsp;</a>
+        </div>
+        <div class="detail">
+            <div :class="[index === 0 ? 'weather1':'weather']" v-for="(item,index) in weather">
+                <p class="type">{{ item.type }}</p>
+                <p class="temp">{{ item.low }} - {{item.high }}</p>
+                <p class="feng">{{ item.fengxiang }}</p>
+                <p class="date">{{ item.date }}</p>
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                city: "",
+                cityList: ["阜阳","北京","上海","广州","深圳"],
+                weather:[],
+            },
+            methods: {
+                getWeather:function () {
+                    var that = this;
+                    axios.get("http://wthrcdn.etouch.cn/weather_mini?city="+this.city).then(
+                        function (response) {
+                            // console.log(response);
+                            // console.log(response.data.data.forecast);
+                            that.weather = response.data.data.forecast;
+                        },
+                        function (err) {
+                            console.log(err);
+                        }
+                    )
+                },
+                getCity:function (item) {
+                    this.city = item;
+                    this.getWeather();
+                }
+            }
+
+        })
+    </script>
+
+</body>
+</html>
