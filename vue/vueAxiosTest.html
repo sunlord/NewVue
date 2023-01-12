@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "app">
+        <input type = "button" value = "请求笑话" class="get" @click="getJoke">
+        <p>{{ joke }}</p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                joke: "笑话",
+            },
+            methods: {
+                getJoke:function() {
+                    console.log(this.joke);
+                    var that = this;
+                    // 接口已无法使用!!!
+                    axios.get("https://www.autumnfish.cn/joke").then(
+                        function (response) {
+                            that.joke = response.data;
+                            console.log(response);
+                        },function (err) {
+                            console.log(err);
+                        }
+                    )
+                }
+            }
+        })
+    </script>
+</body>
+</html>
