@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="../css/vueMusic.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="musicTool">
+            <div class="top">
+                <div class="topLeft">
+                    <p>网抑云音乐</p>
+                </div>
+                <div class="topRight">
+                    <div class="topList">
+                        <p>个性推荐</p>
+                        <p>歌单</p>
+                        <p>排行榜</p>
+                        <p>歌手</p>
+                        <p>最新音乐</p>
+                    </div>
+                    <div class="set">
+                        <div class="search">
+                            <input type="text" placeholder="🔍 搜索" class="getName" @keyup.enter="getMusic" v-model="name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div class="left">
+                    <div class="songLists">
+                        <img :src="songList.icon" alt="">
+                        <p class="songTitle">{{ songList.title }}</p>
+                        <p class="songName">{{ songList.name }}</p>
+                        <p class="songStory">{{ songList.story }}</p>
+
+                    </div>
+                </div>
+                <div class="right">
+                    <img :src="songList.bg" alt="">
+                </div>
+            </div>
+            <div class="bottom">
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                name:"",
+                songList:[]
+            },
+            methods: {
+                getMusic: function () {
+                    var that = this;
+                    axios.get("https://autumnfish.cn/api/hero/info?name="+this.name).then (
+                        function (response) {
+                            console.log(response);
+                            that.songList = response.data;
+                        },
+                        function (err) {
+                            console.log(err);
+                        }
+                    )
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

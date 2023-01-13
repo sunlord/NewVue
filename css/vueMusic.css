@@ -1,0 +1,131 @@
+
+body {
+    background-color: rgb(29, 29, 31);
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    flex-direction: center;
+}
+
+.musicTool {
+    width: 1000px;
+    height: 670px;
+    margin-top: 80px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    width: auto;
+    height:75px;
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 10px 10px 0 0;
+}
+
+.topLeft {
+    width: 199px;
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    color: rgb(80, 80, 80);
+    font-weight: bolder;
+    border-radius: 10px 0 0 0;
+}
+
+.topRight {
+    display: flex;
+    justify-content: start;
+    width: 800px;
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+}
+
+.topList {
+    width: 350px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.set {
+    margin-left: 120px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.search {
+    width: 100px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.getName {
+    width: 150px;
+    height: 25px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 0;
+    padding-left: 5px;
+    background-color: rgb(235, 235, 235);
+}
+
+.page {
+    width: auto;
+    height:835px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.left {
+    width:200px;
+    background-color: rgb(234, 234, 234);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.songLists {
+    width: 200px;
+}
+
+.songLists img {
+    width: 100px;
+}
+
+.songTitle {
+    color: red;
+}
+
+.songName {
+    color: red;
+}
+
+.songStory {
+    color:slateblue;
+}
+
+.right {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right img {
+    width: 800px;
+}
+
+.bottom {
+    width: auto;
+    height: 90px;
+    border-top: 1px solid #f2f2f2;
+}
